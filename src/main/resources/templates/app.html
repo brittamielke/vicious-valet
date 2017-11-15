@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vicious Valet Service</title>
+		<link rel="stylesheet" href="css/app.css">
+		<link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+	</head>
+	<body>
+	<header>
+		<h1 id="vicious">Vicious Valet</h1>
+		<h3 id="subtitle">Car Management Application</h3>
+		<div id="hero"></div>
+	</header>
+	<div class="pageContent">
+		<h3>Use the form below to add a car to the lot:</h3>
+		<br>
+		<form action="/" method="post">
+			<div>
+				<label>License Plate
+				<input type="text" name="license"></label>
+				<br></br>
+			</div>
+			<div>
+				<label>License State
+				<input type="text" name="state"></label>
+				<br></br>
+			</div>
+			<div>
+				<label>Vehicle Make
+				<input type="text" name="make"></label>
+				<br></br>
+			</div>
+			<div>
+				<label>Vehicle Model
+				<input type="text" name="model"></label>
+				<br></br>
+			</div>
+			<div>
+				<label>Vehicle Color
+				<input type="text" name="color"></label>
+				<br></br>
+			</div>
+		<button class="buttonStyle">Add Car to Lot</button>
+		</form>	
+		<p>	The Lot is full: {{ lot.isLotFull }}</p>
+		<p> The number of cars in the lot: {{ lot.size }}</p>
+		<div>
+		<table id="carList">
+			<thead>
+				<tr>
+					<th>License</th>
+					<th>State</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Color</th>
+					<th>Click to Remove</th>
+				</tr>
+			</thead>
+			<tbody>
+			{{#lot.carList}}
+				<tr>
+					<td>{{ license }}</td>
+					<td>{{ state }}</td>
+					<td>{{ make }}</td>
+					<td>{{ model }}</td>
+					<td>{{ color }}</td>
+					<td>
+						<form action="/remove" method="post">
+							<!-- action needs to map to the RequestMapping Name -->
+							<input type="hidden" name="carIndex" value="{{ -index }}">
+							<button class="buttonStyle">Remove from lot</button>
+						</form>
+					</td>
+				</tr>
+			{{/lot.carList}}
+			</tbody>
+		</table>
+		</div>
+	</div>
+	</body>
+</html>
