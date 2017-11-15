@@ -34,6 +34,7 @@ h1 {
 	background-repeat: no-repeat;
 	background-image: url("/images/images.jpg");
 	background-position: center;
+	background-attachment: fixed;
 }
 
 .pageContent{
@@ -67,19 +68,22 @@ th {
 }
 
 .buttonStyle {
-	
+	background: #565656;
+	color: #D7CEC7;
 }
 
 .buttonStyle:hover {
-  background: #76323F;
-  box-shadow: 0px 2px 0px 0px #808080;
+  background: #565656;
+  box-shadow: 0px 2px 0px 0px #000000;
   margin-bottom: -2px;
   margin-top: 2px;
 }
-.buttonStyle:active {
-  box-shadow: 0px 0px 0px 0px #808080;
+
+ .buttonStyle:active {
+  background: #76323F;
   margin-bottom: -4px;
   margin-top: 4px;
   transition: none;
 }
+
 
